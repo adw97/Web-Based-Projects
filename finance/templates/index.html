@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+
+        {% for info in all_info %}
+            <tr>
+                <td>{{ info.symbol }}</td>
+                <td>{{ info.name }}</td>
+                <td>{{ info.shares }}</td>
+                <td>{{ info.cost }}</td>
+                <td>{{ usd(info.total) }}</td>
+            </tr>
+        {% endfor %}
+
+
+        <tr>
+            <td>Cash</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ balance }}</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ total_balance }}</td>
+        </tr>
+
+    </table>
+{% endblock %}
